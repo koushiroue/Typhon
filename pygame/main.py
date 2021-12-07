@@ -1,16 +1,32 @@
-# This is a sample Python script.
+import pygame
+from game import Game
+from config import *
+from menu import Menu
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+game = Game()
+m = Menu()
+
+if __name__ == "__main__":
+    while running:
+
+        # Event Checker
+        for event in pygame.event.get():
+            # Quit game
+            if event.type == pygame.QUIT:
+                running = False
+
+        if start_game == False:
+            screen.fill("white")
+            if m.startButton.draw(screen):
+                start_game = True
+            if m.exitButton.draw(screen):
+                running = False
+                start_game = False
+        else:
+            game.main_loop()
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+        pygame.display.update()
+        clock.tick(FPS)
+pygame.quit();
+exit();
