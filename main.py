@@ -1,6 +1,6 @@
 import pygame
 
-from game import Game
+from game import *
 
 g = Game()
 

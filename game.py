@@ -9,7 +9,7 @@ class Game:
         self.DISPLAY_W, self.DISPLAY_H = 480, 270
         self.display = pygame.Surface((self.DISPLAY_W, self.DISPLAY_H))
         self.window = pygame.display.set_mode((self.DISPLAY_W, self.DISPLAY_H))
-        self.font_name = 'assets/font/8-BIT WONDER.TTF'
+        self.font_name = 'assets/font/AvenirLTStd-Book.otf'
         # self.font_name = pygame.font.get_default_font()
         self.BLACK, self.WHITE = (0, 0, 0), (255, 255, 255)
         self.main_menu = MainMenu(self)
