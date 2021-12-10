@@ -1,6 +1,6 @@
 # Typhon
 
-This is a pygame project for GDC Pygame Workshop, The theme od this project is #TeamSeas
+This is a pygame project for GDC Pygame Workshop, The theme of this project is #TeamSeas
 
 ## Credits
 
