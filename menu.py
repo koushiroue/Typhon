@@ -1,6 +1,7 @@
 import pygame
 
-class Menu():
+
+class Menu:
     def __init__(self, game):
         self.game = game
         self.mid_w, self.mid_h = self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2
@@ -15,6 +16,7 @@ class Menu():
         self.game.window.blit(self.game.display, (0, 0))
         pygame.display.update()
         self.game.reset_keys()
+
 
 class MainMenu(Menu):
     def __init__(self, game):
@@ -37,7 +39,6 @@ class MainMenu(Menu):
             self.game.draw_text("Credits", 20, self.creditsx, self.creditsy)
             self.draw_cursor()
             self.blit_screen()
-
 
     def move_cursor(self):
         if self.game.DOWN_KEY:
@@ -71,6 +72,7 @@ class MainMenu(Menu):
             elif self.state == 'Credits':
                 self.game.curr_menu = self.game.credits
             self.run_display = False
+
 
 class OptionsMenu(Menu):
     def __init__(self, game):
@@ -106,6 +108,7 @@ class OptionsMenu(Menu):
         elif self.game.START_KEY:
             # TO-DO: Create a Volume Menu and a Controls Menu
             pass
+
 
 class CreditsMenu(Menu):
     def __init__(self, game):
