@@ -7,7 +7,7 @@ from menu import *
 
 class Game:
 
-    #Local init
+    # Local init
     def __init__(self):
         pygame.init()
 
@@ -16,17 +16,33 @@ class Game:
         self.START_KEY, self.BACK_KEY = False, False
         self.DISPLAY_W, self.DISPLAY_H = 640, 480
         self.display = pygame.Surface((self.DISPLAY_W, self.DISPLAY_H))
-        self.window = pygame.display.set_mode((self.DISPLAY_W, self.DISPLAY_H))
         pygame.display.set_icon(pygame.image.load("assets/icon/ico.png"))
         pygame.display.set_caption("Typhon")
-        self.font_name = 'assets/font/AvenirLTStd-Book.otf'
-        # self.font_name = pygame.font.get_default_font()
+        self.window = pygame.display.set_mode((self.DISPLAY_W, self.DISPLAY_H))
+
+        self.font_name = 'assets/font/AvenirLTStd-Black.otf'
+
+        self.time = pygame.time.Clock()
+        self.fps = self.time.tick(60)
 
         self.BLACK, self.WHITE = (0, 0, 0), (255, 255, 255)
         self.main_menu = MainMenu(self)
         self.options = OptionsMenu(self)
         self.credits = CreditsMenu(self)
         self.curr_menu = self.main_menu
+
+    def intro(self):
+        # Insert GAME SCENE HERE
+        while not self.playing:
+            self.check_events()
+            if self.START_KEY:
+                self.playing = True
+            self.display.fill(self.BLACK)
+            pygame.time.wait(500)
+            self.draw_text('Pygame Workshop', 20, self.DISPLAY_W / 2, self.DISPLAY_H / 2)
+            self.window.blit(self.display, (0, 0))
+            pygame.display.update()
+            self.reset_keys()
 
     def game_loop(self):
         # Insert GAME SCENE HERE
